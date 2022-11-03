@@ -1,4 +1,3 @@
-
 public class StringLoops
 {
     // default constructor; no instance variables
@@ -53,31 +52,55 @@ public class StringLoops
     */
     public String reverseString2(String origString)
     {
-   /* to be implemented*/
-        return "Temp";
+        String tempString = "";
+        for (int i = 0; i < origString.length(); i++)
+        {
+            tempString = origString.charAt(i) + tempString;
+        }
+        return tempString;
     }
     /* Returns the number of vowels ("a", "e", "i", "o", "u") that appear in "origString";
     matches should NOT be case sensitive.*/
 
     public int countVowels(String origString)
     {
-        /* to be implemented */
-        return 0;
+        String l = "";
+        int count = 0;
+        for (int i = 0; i < origString.length(); i++)
+        {
+            l = String.valueOf(origString.toLowerCase().charAt(i));
+            if (l.equals("a") || l.equals("e") || l.equals("i") || l.equals("u") || l.equals("o"))
+            {
+                count++;
+            }
+        }
+        return count;
     }
     /* Returns the number of times "searchString" appears in "origString";
      matches should NOT be case sensitive.*/
     public int countString(String searchString, String origString)
     {
-        /* to be implemented */
-        return 0;
+        String tempString = origString.toLowerCase();
+        String tempSearch = searchString.toLowerCase();
+        int count = 0;
+        while (tempString.contains(tempSearch))
+        {
+            tempString = tempString.substring(tempString.indexOf(tempSearch)+1);
+            count++;
+        }
+        return count;
     }
     /* Returns a String with all instances of "searchString" removed from "origString";
      matches SHOULD be case sensitive (i.e no need to convert to lowercase)*/
 
     public String removeString(String searchString, String origString)
     {
-        /* to be implemented */
-        return "temp";
+        String tempString = origString;
+        while (tempString.contains(searchString))
+        {
+            tempString = tempString.substring(0, tempString.indexOf(searchString)) + tempString.substring(tempString.indexOf(searchString) + searchString.length());
+        }
+        return tempString;
     }
     /* Returns a String with all instances of "searchChar" in "origString" replaced with
    "replaceChar"; matches SHOULD be case sensitive.
@@ -85,8 +108,11 @@ public class StringLoops
       both searchChar and replaceChar are single characters, and they are not equal*/
     public String replaceCharacter(String searchChar, String origStr, String replaceChar)
     {
-        /* to be implemented */
-        return "temp";
+        String tempString = origStr;
+        while (tempString.contains(searchChar))
+        {
+            tempString = tempString.substring(0, tempString.indexOf(searchChar)) + replaceChar + tempString.substring(tempString.indexOf(searchChar) + searchChar.length());
+        }
+        return tempString;
     }
-
 }
